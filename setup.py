@@ -11,7 +11,7 @@ def get_requirements(file_path:str) ->List[str]:
     requirements=[]
     with open(file_path) as file_obj:
         requirements = file_obj.readline()
-        requirements = [req.strip() for req in requirements if req.strip()]  # Remove newline characters and empty lines
+        requirements=[req.replace("\n","") for req in requirements]# Remove newline characters and empty lines
 
 
         if HYPHEN_DOT in requirements:

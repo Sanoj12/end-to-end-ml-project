@@ -13,6 +13,9 @@ import pandas as pd
 
 from sklearn.model_selection import train_test_split
 
+from src.components.data_transformation import DataTransformation
+from src.components.data_transformation import DataTransformationConfig
+
 from dataclasses import dataclass ##create class variables
 
 
@@ -70,4 +73,9 @@ class DataIngestion:
 
 if __name__ == "__main__":
     obj = DataIngestion()
-    obj.initiate_data_ingestion()
+    train_data,test_data=obj.initiate_data_ingestion()
+
+    data_transforamtion = DataTransformation()
+    data_transforamtion.initiate_data_trnsformation(train_data,test_data)
+
+    
